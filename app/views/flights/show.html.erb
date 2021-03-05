@@ -4,4 +4,6 @@
 <h2> <%= @flight.arrival_city %> </h2><br>
 <% @passengers.each do |passenger|%>
 <%= passenger.name %>
+<%= button_to 'Delete Passenger', flight_passenger_path(@flight), method: :delete, params: {passenger_id: passenger.id} %>
 <% end %>
+Average Age of Passengers: <%= @passengers.average_age %>
