@@ -35,6 +35,7 @@ RSpec.describe 'Flights Show' do
       expect(page).to have_content(@passenger_3.name)
       expect(page).to have_content(@passenger_4.name)
       expect(page).to_not have_content(@passenger_2.name)
+      expect(page).to have_content(@flight_1.adult_passengers.average_age)
 
     end
 
