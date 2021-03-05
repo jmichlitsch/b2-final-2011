@@ -11,7 +11,7 @@ RSpec.describe 'Flights Index' do
 
       @flight_2 = Flight.create(flight_number: "3459",
                                date: "3/12/2021",
-                               departure_city: "Denver",
+                               departure_city: "Austin",
                                arrival_city: "Seattle")
 
       @flight_3 = Flight.create(flight_number: "2020",
@@ -40,6 +40,7 @@ RSpec.describe 'Flights Index' do
       @flight_passengers_6 = FlightPassenger.create(passenger_id: @passenger_6.id, flight_id: @flight_3.id)
 
       visit '/flights'
+      save_and_open_page
       expect(page).to have_content(@flight_1.flight_number)
       expect(page).to have_content(@flight_1.date)
       expect(page).to have_content(@flight_1.departure_city)
@@ -52,6 +53,7 @@ RSpec.describe 'Flights Index' do
       expect(page).to have_content(@flight_3.date)
       expect(page).to have_content(@flight_3.departure_city)
       expect(page).to have_content(@flight_3.arrival_city)
+      expect(@flight_2.flight_number).to appear_before(@flight_1.flight_number)
     end
   end
 end

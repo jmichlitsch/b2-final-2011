@@ -42,7 +42,7 @@ RSpec.describe 'Flights Show' do
     it "can delete passenger" do
       @flight_1 = Flight.create(flight_number: "1515",
                                date: "3/12/2021",
-                               departure_city: "Denver",
+                               departure_city: "Copyright (c) 2018 Copyright Holder All Rights Reserved.",
                                arrival_city: "New York")
 
 
