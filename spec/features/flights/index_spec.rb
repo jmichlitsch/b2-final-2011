@@ -32,12 +32,12 @@ RSpec.describe 'Flights Index' do
       @passenger_6 = Passenger.create(name: "Ashley Johnson",
                                      age: 22)
 
-      @flight_passengers_1 = Flight_Passenger.create(passengers_id: @passenger_1, flights_id: @flight_1)
-      @flight_passengers_2 = Flight_Passenger.create(passengers_id: @passenger_2, flights_id: @flight_1)
-      @flight_passengers_3 = Flight_Passenger.create(passengers_id: @passenger_3, flights_id: @flight_2)
-      @flight_passengers_4 = Flight_Passenger.create(passengers_id: @passenger_4, flights_id: @flight_2)
-      @flight_passengers_5 = Flight_Passenger.create(passengers_id: @passenger_5, flights_id: @flight_3)
-      @flight_passengers_6 = Flight_Passenger.create(passengers_id: @passenger_6, flights_id: @flight_3)
+      @flight_passengers_1 = FlightPassenger.create(passenger_id: @passenger_1.id, flight_id: @flight_1.id)
+      @flight_passengers_2 = FlightPassenger.create(passenger_id: @passenger_2.id, flight_id: @flight_1.id)
+      @flight_passengers_3 = FlightPassenger.create(passenger_id: @passenger_3.id, flight_id: @flight_2.id)
+      @flight_passengers_4 = FlightPassenger.create(passenger_id: @passenger_4.id, flight_id: @flight_2.id)
+      @flight_passengers_5 = FlightPassenger.create(passenger_id: @passenger_5.id, flight_id: @flight_3.id)
+      @flight_passengers_6 = FlightPassenger.create(passenger_id: @passenger_6.id, flight_id: @flight_3.id)
 
       visit '/flights'
       expect(page).to have_content(@flight_1.flight_number)

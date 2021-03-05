@@ -6,4 +6,8 @@ class Flight < ApplicationRecord
   def self.alphabetisize
     find_by_sql("SELECT * FROM flights ORDER BY flights.departure_city desc")
   end
+
+  def adult_passengers
+    passengers.where("age > 18")
+  end
 end

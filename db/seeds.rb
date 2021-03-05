@@ -17,3 +17,22 @@
                          date: "3/12/2021",
                          departure_city: "Denver",
                          arrival_city: "Miami")
+                         @passenger_1 = Passenger.create(name: "John Smith",
+                                                        age: 43)
+                         @passenger_2 = Passenger.create(name: "Joe Dirt",
+                                                        age: 19)
+                         @passenger_3 = Passenger.create(name: "Forrest Gump",
+                                                        age: 27)
+                         @passenger_4 = Passenger.create(name: "Jenny Gump",
+                                                        age: 27)
+                         @passenger_5 = Passenger.create(name: "Jane Doe",
+                                                        age: 32)
+                         @passenger_6 = Passenger.create(name: "Ashley Johnson",
+                                                        age: 22)
+
+                         @flight_passengers_1 = FlightPassenger.create(passenger_id: @passenger_1.id, flight_id: @flight_1.id)
+                         @flight_passengers_2 = FlightPassenger.create(passenger_id: @passenger_2.id, flight_id: @flight_1.id)
+                         @flight_passengers_3 = FlightPassenger.create(passenger_id: @passenger_3.id, flight_id: @flight_2.id)
+                         @flight_passengers_4 = FlightPassenger.create(passenger_id: @passenger_4.id, flight_id: @flight_2.id)
+                         @flight_passengers_5 = FlightPassenger.create(passenger_id: @passenger_5.id, flight_id: @flight_3.id)
+                         @flight_passengers_6 = FlightPassenger.create(passenger_id: @passenger_6.id, flight_id: @flight_3.id)

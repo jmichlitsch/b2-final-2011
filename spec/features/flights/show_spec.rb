@@ -21,13 +21,12 @@ RSpec.describe 'Flights Show' do
                                      age: 27)
 
 
-      @flight_passengers_1 = Flight_Passenger.create(passengers_id: @passenger_1, flights_id: @flight_1)
-      @flight_passengers_2 = Flight_Passenger.create(passengers_id: @passenger_2, flights_id: @flight_1)
-      @flight_passengers_3 = Flight_Passenger.create(passengers_id: @passenger_3, flights_id: @flight_1)
-      @flight_passengers_4 = Flight_Passenger.create(passengers_id: @passenger_4, flights_id: @flight_1)
+      @flight_passengers_1 = FlightPassenger.create(passenger_id: @passenger_1.id, flight_id: @flight_1.id)
+      @flight_passengers_2 = FlightPassenger.create(passenger_id: @passenger_2.id, flight_id: @flight_1.id)
+      @flight_passengers_3 = FlightPassenger.create(passenger_id: @passenger_3.id, flight_id: @flight_1.id)
+      @flight_passengers_4 = FlightPassenger.create(passenger_id: @passenger_4.id, flight_id: @flight_1.id)
 
       visit "/flights/#{@flight_1.id}"
-
       expect(page).to have_content(@flight_1.flight_number)
       expect(page).to have_content(@flight_1.date)
       expect(page).to have_content(@flight_1.departure_city)
@@ -35,6 +34,7 @@ RSpec.describe 'Flights Show' do
       expect(page).to have_content(@passenger_1.name)
       expect(page).to have_content(@passenger_3.name)
       expect(page).to have_content(@passenger_4.name)
+      expect(page).to_not have_content(@passenger_2.name)
 
     end
   end
